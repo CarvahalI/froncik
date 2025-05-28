@@ -151,6 +151,7 @@ export default function StickyHeaderTable() {
         }
     };
 
+<<<<<<< HEAD
 const handleEndLoan = async (loanId: number) => {
     try {
         const response = await apiClient.endLoan(loanId);
@@ -192,12 +193,19 @@ setRows(mappedLoans);
 
 
 
+=======
+    const handleEndLoan = () => {
+        // Add logic to handle ending a loan
+        console.log("Ending a loan...");
+    };
+>>>>>>> zmiany-kolegi
 
     return (
         <ThemeProvider theme={theme}>
             <div>
                 <CustomAppBar />
                 <Box sx={{ marginTop: 8 }}>
+<<<<<<< HEAD
                     <TableContainer component={Paper}>
  <Table stickyHeader aria-label="sticky table">
                             <TableHead>
@@ -234,6 +242,36 @@ setRows(mappedLoans);
   </Table>
 </TableContainer>
 
+=======
+                    <TableContainer component={Paper} sx={{ maxHeight: 440, maxWidth: 800, marginTop: 4, margin: '0 auto' }}>
+                        <Table stickyHeader aria-label="sticky table">
+                            <TableHead>
+                                <TableRow>
+                                    <StyledTableCell>{t('loan id')}</StyledTableCell>
+                                    <StyledTableCell align="right">{t('user ID')}</StyledTableCell>
+                                    <StyledTableCell align="right">{t('book ID')}</StyledTableCell>
+                                    <StyledTableCell align="right">{t('loan date')}</StyledTableCell>
+                                    <StyledTableCell align="right">{t('due date')}</StyledTableCell>
+                                    <StyledTableCell align="right">{t('return date')}</StyledTableCell>
+                                </TableRow>
+                            </TableHead>
+                            <TableBody>
+                                {rows.map((row) => (
+                                    <TableRow key={row.id}>
+                                        <CustomTableCell component="th" scope="row">
+                                            {row.id}
+                                        </CustomTableCell>
+                                        <CustomTableCell align="right">{row.user.id}</CustomTableCell>
+                                        <CustomTableCell align="right">{row.book.id}</CustomTableCell>
+                                        <CustomTableCell align="right">{row.loanDate}</CustomTableCell>
+                                        <CustomTableCell align="right">{row.dueDate}</CustomTableCell>
+                                        <CustomTableCell align="right">{row.returnDate}</CustomTableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+>>>>>>> zmiany-kolegi
                     <Box sx={{ display: 'flex', justifyContent: 'center', marginTop: 2 }}>
                         <Button variant="contained"
                                 color="primary"
@@ -266,9 +304,18 @@ setRows(mappedLoans);
                                 <Button onClick={handleStartNewLoan} color="primary">{t('add')}</Button>
                             </DialogActions>
                         </Dialog>
+<<<<<<< HEAD
                        
 
 
+=======
+                        <Button variant="contained"
+                                color="secondary"
+                                onClick={handleEndLoan}
+                                sx={{ width: '200px', backgroundColor: '#F59AA5', color: '#FFFFFF', margin: '10px'}}>
+                            {t('end loan')}
+                        </Button>
+>>>>>>> zmiany-kolegi
                     </Box>
                 </Box>
             </div>

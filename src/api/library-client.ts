@@ -5,6 +5,10 @@ import {userDataDto, userResponseDto} from "./dto/userData.dto";
 import {loanDataDto, loanResponseDto} from "./dto/loanData.dto";
 import {LoanToAddDataDto} from "./dto/LoanToAddData.dto";
 import {DeleteBookDto, deleteBookResponseDto} from "./dto/DeleteBook.dto";
+<<<<<<< HEAD
+=======
+import {deleteUserDto} from "./dto/deleteUser.dto";
+>>>>>>> zmiany-kolegi
 
 export type ClientResponse<T> = {
     success: boolean,
@@ -15,6 +19,7 @@ export class LibraryClient {
     private client: AxiosInstance;
 
     constructor() {
+<<<<<<< HEAD
     console.log('LibraryClient');
     this.client = axios.create({
         baseURL: 'http://localhost:8081',
@@ -27,6 +32,13 @@ export class LibraryClient {
     }
 }
 
+=======
+        console.log('LibraryClient');
+        this.client = axios.create({
+            baseURL: 'http://localhost:8081',
+        });
+    }
+>>>>>>> zmiany-kolegi
 
     public async login(data: LoginDto): Promise<{role: string | undefined;
     data: LoginResponseDto | undefined;
@@ -151,6 +163,27 @@ export class LibraryClient {
         }
     }
 
+<<<<<<< HEAD
+=======
+    public async deleteUser(deleteUser: deleteUserDto): Promise<ClientResponse<userResponseDto | null>> {
+        try {
+            const response = await this.client.delete('/api/user/delete', {data: deleteUser});
+            return {
+                success: true,
+                data: response.data,
+                statusCode: response.status,
+            };
+        } catch (error) {
+            const axiosError = error as AxiosError<Error>;
+            return {
+                success: false,
+                data: null,
+                statusCode: axiosError.response?.status || 0
+            };
+        }
+    }
+
+>>>>>>> zmiany-kolegi
     public async addLoan(LoanToAddData: LoanToAddDataDto): Promise<ClientResponse<loanResponseDto | null>> {
         try {
             const response = await this.client.post('/api/loan/borrow', LoanToAddData);
@@ -186,6 +219,7 @@ export class LibraryClient {
         }
     }
     public async endLoan(loanId: number): Promise<ClientResponse<loanResponseDto | null>> {
+<<<<<<< HEAD
     try {
          const response = await this.client.delete(`/api/loan/delete/${loanId}`);
         return {
@@ -205,3 +239,22 @@ export class LibraryClient {
 
 }
 
+=======
+        try {
+            const response = await this.client.post('/api/loan/return/{id}', loanId);
+            return {
+                success: true,
+                data: response.data,
+                statusCode: response.status,
+            };
+        } catch (error) {
+            const axiosError = error as AxiosError<Error>;
+            return {
+                success: false,
+                data: null,
+                statusCode: axiosError.response?.status || 0
+            };
+        }
+    }
+}
+>>>>>>> zmiany-kolegi
