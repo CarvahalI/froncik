@@ -1,5 +1,12 @@
 .App {
   text-align: center;
+  min-height: 100vh;
+  background-image: url('https://www.naszeszlaki.pl/wp-content/uploads/2021/12/biblioteka-pulki-ksiazki.webp'); /* lub pełny URL z Unsplash */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
 }
 
 .App-logo {
