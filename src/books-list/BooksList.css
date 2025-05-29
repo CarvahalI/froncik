@@ -6,9 +6,6 @@
     justify-content: center;
     gap: 2rem;
     align-items: center;
-<<<<<<< HEAD
-}
-=======
 }
 .actions {
     display: flex;
@@ -32,4 +29,3 @@
 .delete-book-button {
     background-color: #dc2626;
 }
->>>>>>> zmiany-kolegi
